@@ -7,4 +7,4 @@
 1. [Least Common Substring](src/DynamicProgramming/CoinChangeProblem.java)
 2. [Least Common Subsequence](src/DynamicProgramming/LongestCommonSubsequence.java)
 3. [Coin change problem](src/DynamicProgramming/LongestCommonSubstring.java)
-4. [Stream crossing problem]src/DynamicProgramming/StreamCrossingProblem.java)
+4. [Stream crossing problem](src/DynamicProgramming/StreamCrossingProblem.java)
