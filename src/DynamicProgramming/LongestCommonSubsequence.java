@@ -1,0 +1,54 @@
+package DynamicProgramming;
+
+/**
+ * Program to compute the longest common sub-sequence from two given input strings str1 and str2.
+ * Run-time complexity: O(n*m)
+ * Space complexity: O(n*m)
+ * where m,n are the lengths of str1 and str2 respectively.
+ */
+public class LongestCommonSubsequence {
+
+    /*
+        Example:
+            IP: ABABA, DBADB
+
+            memo:
+                A B A B A
+              D 0 0 0 0 0
+              B 0 1 1 1 1
+              A 1 1 2 2 2
+              D 0 1 2 2 2
+              B 0 1 2 3 3
+
+            OP: Diagonal from 1 to 3 in memo - "BAB".
+     */
+    public String getLCS(String str1, String str2) {
+        if(str1 == null || str2 == null) return null;
+        String result = "";
+        int[][] memo = new int[str1.length()][str2.length()];
+        for(int i=0; i<str1.length(); i++) {
+            for(int j=0; j<str2.length(); j++) {
+                if(str1.charAt(i) == str2.charAt(j)) {
+                    if(i == 0 || j == 0) {
+                        memo[i][j] = 1;
+                    } else {
+                        memo[i][j] = memo[i-1][j-1] + 1;
+                        if(memo[i][j] > result.length()) {
+                            result = str1.substring(i-memo[i][j]+1, i+1);
+                        }
+                    }
+                } else {
+                    if(i > 0 && j > 0) {
+                        memo[i][j] = Math.max(memo[i-1][j], memo[i][j-1]);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        LongestCommonSubsequence obj = new LongestCommonSubsequence();
+        System.out.println(obj.getLCS("ABABA", "DBADB"));
+    }
+}
