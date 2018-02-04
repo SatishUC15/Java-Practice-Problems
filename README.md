@@ -1,4 +1,7 @@
 # Java-Practice-Problems
+## Data Structures
+1. Min Heap implementation
+2. Program to identify the K nearest neighbors from a list of 3d data points
 
 ## Dynamic Programming:
 1. Least Common Substring
